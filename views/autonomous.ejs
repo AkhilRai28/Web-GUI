@@ -1,0 +1,96 @@
+<div class="mt-4 p-3 text-black box" style="height: fit-content">
+  <h4 style="text-align: center">Autonomous Control</h4>
+  <hr />
+  <div class="container">
+    <table class="table">
+      <tr>
+        <td style="padding-top: 3%"><span>Number of Goal</span></td>
+        <td>
+          <input
+            class="form-control"
+            type="text"
+            name="goalNumber"
+            id="goalNumber"
+            placeholder="1"
+            size="10"
+            autocomplete="off"
+            required
+          />
+        </td>
+        <td>
+          <input class="btn btn-info" type="button" id="goalBtn" value="Done" />
+        </td>
+      </tr>
+
+      <tr>
+        <td></td>
+        <td style="text-align: center">Goal : <span id="currGoal">0</span></td>
+        <td></td>
+      </tr>
+
+      <tr>
+        <td style="padding-top: 4%">Latitude</td>
+        <td>
+          <input
+            type="text"
+            class="form-control cordinates"
+            name="Latitude"
+            id="lat"
+            placeholder="21.203510"
+            size="10"
+            autocomplete="off"
+          />
+        </td>
+      </tr>
+
+      <tr>
+        <td style="padding-top: 4%">Longitude</td>
+        <td>
+          <input
+            type="text"
+            class="form-control cordinates"
+            name="Longitude"
+            id="long"
+            placeholder="72.839233"
+            size="10"
+            autocomplete="off"
+          />
+        </td>
+        <td>
+          <input class="btn btn-info" type="button" id="enter" value="Enter" />
+        </td>
+      </tr>
+
+      <tr>
+        <td></td>
+        <td style="padding-left: auto; padding-right: auto">
+          <input
+            class="btn btn-danger btn-lg"
+            type="button"
+            id="autonomousReset"
+            value="Reset"
+          />
+        </td>
+        <td></td>
+      </tr>
+    </table>
+    <!-- <p>Status - <span class="ctrlStatus" id="autonomousStatus">Closed</span></p> -->
+    <div class="cam-btn">
+      <input
+        class="btn btn-info btn-lg"
+        style="margin-right: 8%"
+        type="button"
+        id="autonomousStart"
+        value="Start"
+      />
+      <input
+        class="btn btn-danger btn-lg"
+        style="margin-left: 8%"
+        type="button"
+        id="autonomousEnd"
+        value="End"
+        disabled
+      />
+    </div>
+  </div>
+</div>

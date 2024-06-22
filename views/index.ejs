@@ -1,0 +1,38 @@
+<%- include ('header') %>
+<div>
+  <main style="background-color: #374045">
+    <%- include('sidebar') %>
+    <div
+      class="b-example-divider"
+      style="height: 95vh; background-color: #374045"
+    ></div>
+
+    <div
+      class="d-flex flex-column flex-shrink-0"
+      style="height: 95vh; background-color: #374045"
+    >
+      <%- include('camera') %> <%- include('selection') %>
+    </div>
+
+    <div
+      class="b-example-divider"
+      style="background-color: #374045; height: 95vh"
+    ></div>
+    <div style="background-color: #374045"><%- include('status') %></div>
+    <div
+      class="b-example-divider"
+      style="background-color: #374045; height: 95vh"
+    ></div>
+    <div
+      class="d-flex flex-column flex-shrink-0"
+      style="background-color: #374045; height: 95vh"
+    >
+      <%- include('manual') %> <%- include('autonomous') %>
+      <!-- <div class="mt-4 p-3 text-black box" style="height: fit-content"> -->
+        <!-- <canvas id="meterCanvas" width="400" height="325"></canvas> -->
+      </div>
+    </div>
+  </main>
+</div>
+
+<%- include ('footer') %>

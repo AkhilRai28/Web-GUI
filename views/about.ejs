@@ -1,0 +1,144 @@
+<%- include ('header') %>
+    <div class="container" style="padding-top: 3%;">
+        <h1 style="text-align: center;margin-bottom: 4%;">About</h1>
+        <p style="text-align: justify;">
+            Mars Rover provides an interface to operate ROS (Robot Operating System) based Bot from Website. Interface
+            provides two operating mode Autonomous and Manual Control along with status of Bot in form of Visual
+            Feed and Sensor Data.
+        </p>
+        <hr>
+        <h4>Navigation Bar</h4>
+
+        <ul>
+            <li>
+                <div>
+                    <p>Home Page</p>
+                    <p>Interface to operate Bot from Web.</p>
+                </div>
+            </li>
+            <li>
+                <div>
+                    <p>About</p>
+                    <p>Guide to Operate Bot using this Web Interface.</p>
+                </div>
+            </li>
+            <li>
+                <div>
+                    <p>Contact</p>
+                    <p>You can give your valuable suggestion.</p>
+                </div>
+            </li>
+        </ul>
+
+        <hr>
+        <h4>Sidebar</h4>
+        <ul>
+            <li>
+                <div>
+                    <p>Server</p>
+                    <p style="text-align: justify;">
+                        Launch WebSocket Server on your Local Machine which is responsible for connection between Local
+                        Machine and Web Interface. It also updates the connection status between server and Web
+                        Interface. For
+                        more details visit <a href="https://github.com/RobotWebTools/rosbridge_suite"
+                            target="_blank">RobotWebTools</a>.
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div>
+                    <p>Roscore</p>
+                    <p style="text-align: justify;">Run Roscore on your Local Machine and update the status of it.</p>
+                </div>
+            </li>
+            <li>
+                <div>
+                    <p>Gazebo</p>
+                    <p style="text-align: justify;">Launch Gazebo which is simulation software and load <a
+                            href="https://github.com/SachinVekariya/Autonomous_Bot/tree/main/bot/urdf"
+                            target="_blanl">Robot model</a> into Gazebo on Local Machine.
+                        It also Publish various sensors data which are mounted on Bot.</p>
+                </div>
+            </li>
+            <li>
+                <div>
+                    <p>Mapviz</p>
+                    <p style="text-align: justify;">
+                        Launch <a href="http://wiki.ros.org/mapviz" target="_blank">Mapviz</a> which is ROS based
+                        visualization tool.
+                    </p>
+                </div>
+            </li>
+        </ul>
+        <hr>
+        <h4>Gazebo Video Feed</h4>
+        <p style="text-align: justify;">
+            It provides video feed from Camera which is mounted on Bot (Inside Gazebo). In backend, it runs <a
+                href="http://wiki.ros.org/mjpeg_server" target="_target">MJPEG Server</a> on your Local Machine and Load
+            image on Web Interface.
+        </p>
+        <hr>
+        <h4>Task Selection</h4>
+        <p style="text-align: justify;">
+            Default task is Manual Control which you can control from Manual Control and you can switch to Autonomous
+            Control by Activating Switch.
+        </p>
+        <hr>
+        <h4>Status</h4>
+        <ul>
+            <li>
+                <div>
+                    <p>Imu</p>
+                    <p>Subscribe imu/data topic and then convert Quaternion to Euler Angle and shows yaw angle with
+                        respect to North Direction in Degree (0 to 360).</p>
+                </div>
+            </li>
+            <li>
+                <div>
+                    <p>GPS</p>
+                    <p>Subscribe /gps_fix topic and show latitude and longitude.</p>
+                </div>
+            </li>
+            <li>
+                <div>
+                    <p>Speed</p>
+                    <p>It shows the speed of bot in terms of Linear and Angular Velocity.</p>
+                </div>
+            </li>
+            <li>
+                <div>
+                    <p>Autonomous</p>
+                    <p>It provides the Status of Autonomous Controller like Current goal, Distance from Destination and
+                        Bot
+                        current operation - Goal to Goal / Obstacle Avoidance.</p>
+                </div>
+            </li>
+        </ul>
+        <hr>
+        <h4>Manual Control</h4>
+        <ul>
+            <li>
+                <div>
+                    <p>Button</p>
+                    <p>It can control bot with set of buttons. Button W for forward, S for backward, A for left, D for
+                        right and center button for Stop.</p>
+                </div>
+            </li>
+            <li>
+                <div>
+                    <p>Keyboard</p>
+                    <p>It can control bot with keyboard. Key W for forward, S for backward, A for left, D for right and
+                        Spacebar button for Stop.</p>
+                </div>
+            </li>
+        </ul>
+        <p>Button/Keyboard Control is disabled on Autonomous Mode.</p>
+        <hr>
+        <h4>Autonomous Control</h4>
+        <p>To operate in Autonomous Mode, we need to provide information about Bot route like Number of Goal and
+            Coordinates of them.Then, you can start Autonomous mode by pressing Start button with task Switch in
+            Autonomous.
+        </p>
+        <hr>
+    </div>
+    <%- include ('footer') %>
