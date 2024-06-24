@@ -1,0 +1,143 @@
+body {
+  background-color: #f5f5f5;
+}
+.navbar {
+  padding: 0.3% 5% 0.3% 5%;
+}
+
+.heading {
+  font-size: 1.7rem;
+}
+
+.ctrlStatus {
+  color: black;
+}
+
+.bg-dark {
+  background-color: black !important;
+}
+.navbar-dark .navbar-nav .nav-link {
+  color: #fff;
+}
+
+.btn-info {
+  color: #000;
+  background-color: #f58b54;
+  /* border-color: #0dcaf0; */
+}
+
+.btn-info.disabled,
+.btn-info:disabled {
+  color: #000;
+  background-color: #f58b54;
+  border-color: #f58b54;
+}
+
+.btn.disabled,
+.btn:disabled,
+fieldset:disabled .btn {
+  pointer-events: none;
+  opacity: 1.65;
+}
+
+.btn-danger:disabled {
+  color: #fff;
+  background-color: black;
+  z-index: 99;
+}
+
+.btn:hover {
+  color: black;
+  background-color: white;
+}
+
+.sidebar {
+  background-color: #a34a28;
+  transition: all 0.5s ease-in-out;
+}
+
+.nav {
+  flex-wrap: nowrap;
+}
+
+.sidebarLi {
+  margin-top: 3%;
+  margin-bottom: 3%;
+}
+
+.b-example-divider {
+  flex-shrink: 0;
+  width: 3.5rem;
+  height: 92.7vh;
+  background-color: #f5f5f5;
+}
+
+main {
+  display: flex;
+  flex-wrap: nowrap;
+  height: 100vh;
+  height: -webkit-fill-available;
+  max-height: 100vh;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.box {
+  background-color: white;
+  border-style: solid;
+  border-color: white;
+  border-radius: 7%;
+}
+
+#video {
+  border-style: none;
+  border-radius: 7%;
+}
+
+.cam-btn {
+  margin-top: 2%;
+  text-align: center;
+}
+
+#camStart {
+  margin-right: 5%;
+}
+
+#camEnd {
+  margin-left: 5%;
+}
+
+.form-switch.form-switch-lg {
+  padding-left: 8.5em;
+  height: 4.5em;
+}
+
+.form-switch.form-switch-lg .form-check-input {
+  margin-left: -8.5em;
+  height: 4em;
+  width: 8em;
+}
+
+.pressed {
+  box-shadow: 0 3px 4px 0 white;
+  opacity: 0.3;
+}
+
+.auto-status-btn-left {
+  border-style: hidden;
+  border-radius: 8% 0 0 8%;
+  color: black;
+  background-color: #eeeff0;
+  padding: 3%;
+}
+.auto-status-btn-right {
+  border-style: hidden;
+  border-radius: 0 8% 8% 0;
+  color: black;
+  background-color: #eeeff0;
+  padding: 3%;
+}
+
+.auto-status-btn-active {
+  background-color: #0dcaf0;
+}
