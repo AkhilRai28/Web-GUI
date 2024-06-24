@@ -1,6 +1,5 @@
 const express = require("express");
-const { exec, execFile, spawn } = require("child_process");
-const { execPath } = require("process");
+const { execFile } = require("child_process");
 
 const http = require("http");
 const socketIO = require("socket.io");
@@ -29,8 +28,8 @@ app.post("/webSocket:id", function (req, res) {
   var id = req.params.id;
   if (id == "Start") {
     websocket = execFile(
-      "roslaunch",
-      ["rosbridge_server", "rosbridge_websocket.launch"],
+      "ros2",
+      ["launch", "rosbridge_server", "rosbridge_websocket_launch.py"],
       function (err, stdout, stderr) {
         if (err) {
           console.log(err);
@@ -53,7 +52,7 @@ var roscore;
 app.post("/roscore:id", function (req, res) {
   var id = req.params.id;
   if (id == "Start") {
-    roscore = execFile("roscore", function (err, stdout, stderr) {
+    roscore = execFile("ros2", ["daemon", "start"], function (err, stdout, stderr) {
       if (err) {
         console.log(err);
       }
@@ -74,8 +73,8 @@ app.post("/gazebo:id", function (req, res) {
   var id = req.params.id;
   if (id == "Start") {
     gazebo = execFile(
-      "roslaunch",
-      ["bot", "simple_gazebo.launch"],
+      "ros2",
+      ["launch", "bot", "simple_gazebo_launch.py"],
       function (err, stdout, stderr) {
         if (err) {
           console.log(err);
@@ -98,8 +97,8 @@ app.post("/mapviz:id", function (req, res) {
   var id = req.params.id;
   if (id == "Start") {
     mapviz = execFile(
-      "roslaunch",
-      ["mapviz", "mapviz.launch"],
+      "ros2",
+      ["launch", "mapviz", "mapviz_launch.py"],
       function (err, stdout, stderr) {
         if (err) {
           console.log(err);
@@ -123,8 +122,8 @@ app.post("/cam:id", function (req, res) {
   var id = req.params.id;
   if (id == "Start") {
     cam = execFile(
-      "rosrun",
-      ["mjpeg_server", "mjpeg_server"],
+      "ros2",
+      ["run", "mjpeg_server", "mjpeg_server"],
       function (err, stdout, stderr) {
         if (err) {
           console.log(err);
@@ -148,8 +147,8 @@ app.post("/autonomous:id", function (req, res) {
   var id = req.params.id;
   if (id == "Start") {
     autonomous = execFile(
-      "roslaunch",
-      ["bot", "autonomous.launch"],
+      "ros2",
+      ["launch", "bot", "autonomous_launch.py"],
       function (err, stdout, stderr) {
         if (err) {
           console.log(err);
@@ -167,37 +166,13 @@ app.post("/autonomous:id", function (req, res) {
   }
 });
 
-// var Panaroma;
-// app.post("/Panorama:id", function (req, res) {
-//   var id = req.params.id;
-//   if (id == "Start") {
-//     Panorama = execFile(
-//       "rosrun",
-//       ["panorama_pkg", "pano.bash"],
-//       function (err, stdout, stderr) {
-//         if (err) {
-//           console.log(err);
-//         }
-//       }
-//     );
-//     console.log("Panorama started");
-//     res.send("Connected");
-//   } else if (id == "End") {
-//     Panaroma.kill();
-
-//     Panaroma.on("exit", function (code) {
-//       console.log(`Panorama exited with ${code}.`);
-//       res.send("Disconnected");
-//     });
-//   }
-// });
-var Panaroma;
+var Panorama;
 app.post("/Panorama:id", function (req, res) {
   var id = req.params.id;
   if (id == "Start") {
     Panorama = execFile(
-      "rosrun",
-      ["ydlidar_ros_driver", "lidar_view.launch"],
+      "ros2",
+      ["launch", "ydlidar_ros_driver", "lidar_view_launch.py"],
       function (err, stdout, stderr) {
         if (err) {
           console.log(err);
@@ -207,9 +182,9 @@ app.post("/Panorama:id", function (req, res) {
     console.log("Panorama started");
     res.send("Connected");
   } else if (id == "End") {
-    Panaroma.kill();
+    Panorama.kill();
 
-    Panaroma.on("exit", function (code) {
+    Panorama.on("exit", function (code) {
       console.log(`Panorama exited with ${code}.`);
       res.send("Disconnected");
     });
