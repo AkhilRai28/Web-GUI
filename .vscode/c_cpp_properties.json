@@ -10,11 +10,11 @@
         "/home/rover/web/src/mjpeg_server/include/**",
         "/usr/include/**"
       ],
-      "name": "ROS",
+      "name": "ROS2",
       "intelliSenseMode": "gcc-x64",
       "compilerPath": "/usr/bin/gcc",
       "cStandard": "gnu11",
-      "cppStandard": "c++14"
+      "cppStandard": "c++17"
     }
   ],
   "version": 4
