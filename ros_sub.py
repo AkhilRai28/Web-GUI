@@ -1,34 +1,31 @@
 #!/usr/bin/env python3
-import rospy
+
+import rclpy
+from rclpy.node import Node
 from geometry_msgs.msg import Twist
 
+class ListenerNode(Node):
 
-def callback(data):
-    rospy.loginfo("%f %f %f %f %f", data.linear.x, data.linear.y,
-                  data.linear.z, data.angular.x, data.angular.y)
-    pub = rospy.Publisher('cmd_vel_auto', Twist, queue_size=10)
-    x = data.linear.x
-    y = data.linear.y
-    val = Twist()
-    val.linear.x = x
-    val.angular.z = y
+    def __init__(self):
+        super().__init__('listener')
+        self.pub = self.create_publisher(Twist, 'cmd_vel_auto', 10)
+        self.sub = self.create_subscription(Twist, 'ros_mobile', self.callback, 10)
 
-    pub.publish(val)
+    def callback(self, data):
+        self.get_logger().info(f"{data.linear.x} {data.linear.y} {data.linear.z} {data.angular.x} {data.angular.y}")
+        
+        val = Twist()
+        val.linear.x = data.linear.x
+        val.angular.z = data.linear.y
+        self.pub.publish(val)
 
-
-def listener():
-    # In ROS, nodes are uniquely named. If two nodes with the same
-    # name are launched, the previous one is kicked off. The
-    # anonymous=True flag means that rospy will choose a unique
-    # name for our 'listener' node so that multiple listeners can
-    # run simultaneously.
-    rospy.init_node('listener', anonymous=True)
-    pub = rospy.Publisher('cmd_vel_auto', Twist, queue_size=10)
-    rospy.Subscriber('ros_mobile', Twist, callback)
-
-    # spin() simply keeps python from exiting until this node is stopped
-    rospy.spin()
-
+def main(args=None):
+    rclpy.init(args=args)
+    node = ListenerNode()
+    rclpy.spin(node)
+    
+    node.destroy_node()
+    rclpy.shutdown()
 
 if __name__ == '__main__':
-    listener()
+    main()
